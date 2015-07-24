@@ -49,18 +49,6 @@
 				</section>
 
 				<section>
-					<p>Guido van Rossum</p>
-					<img width=35% src="images/guido.png"/>
-				</section>
-
-				<section>
-					<h3>Facts</h3>
-					<p class="fragment">1989</p>
-					<p class="fragment">Guido van Rossum</p>
-                    <p class="fragment">Monty Python's Flying Circus</p>
-				</section>
-
-				<section>
 					<h3>语言排名</h3>
 					<div>
 						<div style="width: 40%; display: inline-block; vertical-align: top;">
@@ -166,10 +154,24 @@
 
 				<section>
 					<h3>Python的特点</h3>
-					<p class="fragment">通用性高级语言</p>
+					<p class="fragment">通用语言</p>
 					<p class="fragment">简洁，优雅</p>
 					<p class="fragment">高可读性，高开发效率</p>
-					<p class="fragment">Battery Included</p>
+					<p class="fragment">完善的生态系统</p>
+				</section>
+
+				<section>
+					<p>Guido van Rossum</p>
+					<img width=35% src="images/guido.png"/>
+				</section>
+
+				<section>
+					<h3>Timeline</h3>
+					<li>1989：开始开发</li>
+					<li>1991：公布源码</li>
+                    <li>1994：1.0发布</li>
+                    <li>2000：2.0发布</li>
+                    <li>2008：3.0发布</li>
 				</section>
 
 				<section>
@@ -209,7 +211,7 @@
 					<p class="fragment">脚本语言</p>
 					<p class="fragment">动态类型</p>
 					<p class="fragment">多范式支持：面向过程，面性对象，函数</p>
-					<p class="fragment">GC</p>
+					<p class="fragment">自动内存管理/GC</p>
 				</section>
 
 				<section>
@@ -217,11 +219,10 @@
 					<p class="fragment">丰富的数据结构：dict，list，priority queue</p>
 					<p class="fragment">多线程，多进程</p>
 					<p class="fragment">文件系统操作</p>
-					<p class="fragment">字符处理：unicode，正则表达式</p>
-					<p class="fragment">文本：xml，html，json，csv</p>
+					<p class="fragment">字符文本处理：unicode，正则表达式，xml，json</p>
 					<p class="fragment">网络协议：http，smtp，telnet，ftp</p>
 					<p class="fragment">压缩加密算法：zlib，gzip，md5，sha1</p>
-					<p class="fragment">其他：日志，命令行解析，unit test框架，调试工具</p>
+					<p class="fragment">更多：GUI，日志，命令行解析，unit test框架，调试工具</p>
 				</section>
 
 				<section>
@@ -231,16 +232,78 @@
 					<p class="fragment">丰富的第三方资源：63397个包</p>
 				</section>
 
+                <section>
+                    <h2>Python 2 VS Python 3</h2>
+                    <p class="fragment">Python 2：将继续维护，但是不会有新的feature加入</p>
+                    <p class="fragment">Python 3：不向后兼容，更多功能，更优的性能</p>
+                    <p class="fragment">新项目应该选哪个版本呢？</p>
+                </section>
+
 				<section>
-					<h2>示例1</h2>
-					<p class="fragment">计算器</p>
-					<p class="fragment">统一的第三方中心库<a href="https://pypi.python.org/pypi">PyPI</a></p>
-					<p class="fragment">丰富的第三方资源：63397个包</p>
+					<h2>示例1：计算器</h2>
+					<pre><code class="python">
+1+2
+5*55
+100/2.3
+
+import math
+
+math.pow(5,10)
+                    </code></pre>
 				</section>
 
+                <section>
+                    <h2>示例2：http文件服务器</h2>
+					<pre><code class="bash">
+$ python -m "SimpleHTTPServer" 8090
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>示例3：抓取网页</h2>
+					<pre><code class="python">
+import urllib2
+
+response = urllib2.urlopen('http://127.0.0.1:8090/index.html')
+html = reponse.read()
+
+print html
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>示例4：文本处理</h2>
+					<pre><code class="python">
+# 总行数
+line_count = len(html.splitlines())
+
+# 含有“Python”字符串的行数
+python_line_count = 0
+for line in html.splitlines():
+    if 'Python' in line:
+        python_line_count += 1
+
+print python_line_count
+
+# 替换“Python”为“<strong>PYTHON</strong>”
+html2 = html.replace('Python', '<strong>PYTHON</strong>')
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>示例4：文件操作</h2>
+					<pre><code class="python">
+f = open('/root/hyt/python-presentation/index2.html', 'w')
+f.write(html2)
+f.close()
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h1>Q&A</h1>
+                </section>
 
 			</div>
-
 		</div>
 
 		<script src="revealjs/lib/js/head.min.js"></script>
